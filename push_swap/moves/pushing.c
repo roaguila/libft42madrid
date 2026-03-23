@@ -9,8 +9,8 @@ void    push(t_stack_node **to, t_stack_node **from)
     to_push = *from;
     *from = (*from)->next;
     if (*from)
-        (*from)->previous = NULL;
-    to_push->previous = NULL;
+        (*from)->prev = NULL;
+    to_push->prev = NULL;
     if (!*to)
     {
         *to = to_push;
@@ -19,7 +19,7 @@ void    push(t_stack_node **to, t_stack_node **from)
     else
     {
         to_push->next = *to;
-        (*to)->previous = to_push;
+        (*to)->prev = to_push;
         *to = to_push;
     }
 }
